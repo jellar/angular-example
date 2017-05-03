@@ -1,0 +1,8 @@
+
+<app-server-form (ServerCreated)="OnServerAdded($event)"></app-server-form>
+
+<app-server *ngFor="let server of servers" 
+    [ServerElement]="server" (serverDeleted)="OnServerDeleted($event)">
+</app-server>
+
+ 

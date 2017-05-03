@@ -1,0 +1,19 @@
+
+<div class="list-group">
+    <div class="list-group-item">
+        <h4 class="list-group-item-heading" [ngStyle]="{'color' : getColor()}">
+            {{ServerElement.Name}} ({{ServerElement.Id}})
+        </h4>
+        <span class="badge" [ngStyle]="{'backgroundColor' : getColor()}">
+         {{ServerElement.IsActive === true ? 'online' : 'offline'}}
+     </span>
+        <p>{{ServerElement.Description}}</p>
+        <div>
+            <button type="button" class="btn btn-sm btn-danger"
+              (click)="onServerDeleted()">Delete</button>
+        </div>
+
+    </div>
+</div>
+      
+  
