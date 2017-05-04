@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Server } from '../server/server.model';
+import { Component, OnInit , Input } from '@angular/core';
+import { Server } from '../data/server.model';
+import { ServerDataService} from '../data/serversData.service';
 
 @Component({
   selector: 'app-servers',
@@ -7,27 +8,28 @@ import { Server } from '../server/server.model';
   styleUrls: ['./servers.component.css'] 
 })
 export class ServersComponent implements OnInit { 
-  servers: Server[] = [
-    new Server(1,'Server 1', true, 'Server 1 Description'),
-    new Server(2,'Server 2', false, 'Server 2 Description')
-  ];
+  @Input() servers: Server[];
 
-  constructor() {     
+  constructor(private serverDataService: ServerDataService) {     
     
    }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+     this.servers = this.serverDataService.getServers();
   } 
 
   OnServerAdded( serverData : { Name: string , active: boolean, Desc: string}){  
    
-    this.servers.push({
-      Id: this.servers.length + 1,
-      Name: serverData.Name,
-      IsActive: serverData.active,
-      Description: serverData.Desc,
-      DateCreated: new Date()
-    });
+    let newServer = new Server(this.servers.length + 1,serverData.Name, serverData.active, serverData.Desc)
+    // this.servers.push({
+    //   Id: this.servers.length + 1,
+    //   Name: serverData.Name,
+    //   IsActive: serverData.active,
+    //   Description: serverData.Desc,
+    //   DateCreated: new Date()
+    // });
+    this.serverDataService.addServer(newServer);
   }
 
   OnServerDeleted( data: {Id: number}){    

@@ -2,13 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { ErrorComponent} from './Error/error.component';
 import { SuccessComponent} from './success/success.component';
-import { ServerFormComponent } from './server-form/server-form.component'
+import { ServerFormComponent } from './server-form/server-form.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
+
+
+/* Shared Service*/
+import { ServerDataService } from './data/serversData.service';
 
 @NgModule({
   declarations: [
@@ -17,14 +23,25 @@ import { ServerFormComponent } from './server-form/server-form.component'
     ServersComponent,
     ErrorComponent,
     SuccessComponent,
-    ServerFormComponent
+    ServerFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'servers',
+        component: ServersComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      }
+    ])
   ],
-  providers: [],
+  providers: [{provide: ServerDataService, useClass: ServerDataService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
