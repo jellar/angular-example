@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule} from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
@@ -12,9 +13,15 @@ import { SuccessComponent} from './success/success.component';
 import { ServerFormComponent } from './server-form/server-form.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 
-
 /* Shared Service*/
 import { ServerDataService } from './data/serversData.service';
+
+/** routes */
+import { routing } from './app.routing';
+import { usersRouting } from './users/users.routing';
+
+/**Users module */
+import { UserModule} from './users/user.module';
 
 @NgModule({
   declarations: [
@@ -24,22 +31,15 @@ import { ServerDataService } from './data/serversData.service';
     ErrorComponent,
     SuccessComponent,
     ServerFormComponent,
-    DashboardComponent
+    DashboardComponent 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      {
-        path: 'servers',
-        component: ServersComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      }
-    ])
+    routing ,
+    usersRouting,
+    UserModule 
   ],
   providers: [{provide: ServerDataService, useClass: ServerDataService}],
   bootstrap: [AppComponent]

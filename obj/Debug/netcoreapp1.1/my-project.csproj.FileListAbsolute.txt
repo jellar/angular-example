@@ -1,0 +1,9 @@
+c:\Users\jellar\Documents\angular\my-project\bin\Debug\netcoreapp1.1\my-project.deps.json
+c:\Users\jellar\Documents\angular\my-project\bin\Debug\netcoreapp1.1\my-project.runtimeconfig.json
+c:\Users\jellar\Documents\angular\my-project\bin\Debug\netcoreapp1.1\my-project.runtimeconfig.dev.json
+c:\Users\jellar\Documents\angular\my-project\bin\Debug\netcoreapp1.1\my-project.dll
+c:\Users\jellar\Documents\angular\my-project\bin\Debug\netcoreapp1.1\my-project.pdb
+c:\Users\jellar\Documents\angular\my-project\obj\Debug\netcoreapp1.1\my-project.AssemblyInfo.cs
+c:\Users\jellar\Documents\angular\my-project\obj\Debug\netcoreapp1.1\my-project.dll
+c:\Users\jellar\Documents\angular\my-project\obj\Debug\netcoreapp1.1\my-project.pdb
+C:\Users\jellar\Documents\angular\my-project\obj\Debug\netcoreapp1.1\my-project.csprojResolveAssemblyReference.cache

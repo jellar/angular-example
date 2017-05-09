@@ -1,7 +1,9 @@
+import { RouterModule} from '@angular/router';
+
 import { ServersComponent} from './servers/servers.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 
-export const appRoutes = [   
+export const routing = RouterModule.forRoot([
     {
     path: 'servers',
     component: ServersComponent
@@ -9,7 +11,5 @@ export const appRoutes = [
     {
     path: 'dashboard',
     component: DashboardComponent
-    }  
-]
-
-
+    }
+]);

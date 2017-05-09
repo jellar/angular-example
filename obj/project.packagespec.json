@@ -1,0 +1,32 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\jellar\\Documents\\angular\\my-project\\my-project.csproj",
+    "projectName": "my-project",
+    "projectPath": "C:\\Users\\jellar\\Documents\\angular\\my-project\\my-project.csproj",
+    "outputPath": "C:\\Users\\jellar\\Documents\\angular\\my-project\\obj\\",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "netcoreapp1.1"
+    ],
+    "frameworks": {
+      "netcoreapp1.1": {
+        "projectReferences": {}
+      }
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "target": "Package",
+          "version": "1.1.1"
+        },
+        "Microsoft.AspNetCore": {
+          "target": "Package",
+          "version": "1.1.1"
+        }
+      }
+    }
+  }
+}
