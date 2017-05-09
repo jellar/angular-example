@@ -17,4 +17,8 @@ export class UsersComponent implements OnInit {
     this._userService.getUsers().subscribe(users => this.users = users);  
   }
 
+  deleteUser(user:User){
+      console.log(user.name);
+  }
+
 }
