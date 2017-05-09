@@ -19,9 +19,12 @@ import { ServerDataService } from './data/serversData.service';
 /** routes */
 import { routing } from './app.routing';
 import { usersRouting } from './users/users.routing';
+import { postsRouting } from './posts/posts.routing';
 
 /**Users module */
 import { UserModule} from './users/user.module';
+import { PostsModule} from './posts/posts.module';
+import { SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { UserModule} from './users/user.module';
     HttpModule,
     routing ,
     usersRouting,
-    UserModule 
+    postsRouting,
+    UserModule,
+    PostsModule,
+    SharedModule
   ],
   providers: [{provide: ServerDataService, useClass: ServerDataService}],
   bootstrap: [AppComponent]

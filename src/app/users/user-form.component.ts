@@ -53,6 +53,17 @@ export class UserFormComponent implements OnInit {
     }
 
     submit(value: any):void{
-        console.log(value);
+       var result;
+        
+        if (this.user.id) 
+            result = this._userService.updateUser(this.user);
+        else
+            result = this._userService.addUser(this.user)
+            
+		result.subscribe(x => {
+            // Ideally, here we'd want:
+            // this.form.markAsPristine();
+            this._router.navigate(['users']);
+        });
     }
 }
