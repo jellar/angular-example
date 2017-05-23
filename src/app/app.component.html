@@ -10,8 +10,8 @@
       <div class="navbar-brand">App Component</div>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-         <li>
+      <ul class="nav navbar-nav" *ngIf="LoggedIn()">
+        <li>
           <a routerLink="/dashboard">Dashboard</a>
         </li> 
         <li>
@@ -23,7 +23,12 @@
          <li>
           <a routerLink="/posts">Posts</a>
         </li> 
-      </ul>
+      </ul> 
+        <div class="nav navbar-nav navbar-right" *ngIf="LoggedIn()">
+             <li>
+                <a class="btn-link" (click)="Logout()"> Log Out </a>
+             <li>
+          </div> 
     </div>
    </div>
 </div>

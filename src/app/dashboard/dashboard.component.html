@@ -1,10 +1,10 @@
 
 <h3>Total Servers: {{servers.length}}</h3>
-
+ <button (click)="getCompanies()">Get Companies!</button>
 <div class="row">
     <div class="col-sm-3">
         <button name="activeServers" class="btn btn-lg btn-success">
-              {{getActiveServers()}}
+              {{companies.length}}
         </button>        
     </div>
     <div class="col-sm-3">

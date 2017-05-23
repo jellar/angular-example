@@ -4,7 +4,6 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule} from '@angular/router';
 
-
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
@@ -12,6 +11,7 @@ import { ErrorComponent} from './Error/error.component';
 import { SuccessComponent} from './success/success.component';
 import { ServerFormComponent } from './server-form/server-form.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
+import { LoginComponent} from './login/login.component';
 
 /* Shared Service*/
 import { ServerDataService } from './data/serversData.service';
@@ -26,6 +26,10 @@ import { UserModule} from './users/user.module';
 import { PostsModule} from './posts/posts.module';
 import { SharedModule} from './shared/shared.module';
 
+/**auth */
+import { AuthGuard } from './auth/auth.guard';
+import { AuthenticationService} from './auth/authentication.service'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,8 @@ import { SharedModule} from './shared/shared.module';
     ErrorComponent,
     SuccessComponent,
     ServerFormComponent,
-    DashboardComponent 
+    DashboardComponent ,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,7 @@ import { SharedModule} from './shared/shared.module';
     PostsModule,
     SharedModule
   ],
-  providers: [{provide: ServerDataService, useClass: ServerDataService}],
+  providers: [ServerDataService, AuthGuard , AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
