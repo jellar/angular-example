@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http , Headers,RequestOptions, Response } from '@angular/http';
+import { Http , Headers,RequestOptions, Response,RequestMethod } from '@angular/http';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
@@ -16,7 +16,7 @@ export class AuthenticationService {
 
     login(username:string, password: string): Observable<boolean>{
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-        let options = new RequestOptions({ headers: headers });       
+        let options = new RequestOptions({ method: RequestMethod.Post, headers: headers });       
         let credentials = "grant_type=password&username="+ encodeURIComponent(username)+"&password="+ encodeURIComponent(password);
         return this.http.post('http://localhost:56702/oauth/token',credentials)
             .map((response: Response)=> {                

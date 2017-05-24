@@ -1,15 +1,17 @@
 
-<h3>Total Servers: {{servers.length}}</h3>
- <button (click)="getCompanies()">Get Companies!</button>
-<div class="row">
-    <div class="col-sm-3">
-        <button name="activeServers" class="btn btn-lg btn-success">
-              {{companies.length}}
-        </button>        
-    </div>
-    <div class="col-sm-3">
-         <button name="activeServers" class="btn btn-lg btn-danger">
-              {{getInActiveServers()}}
-        </button>
-    </div>
-</div>
+<h3>Total Companies: {{companies.length}}</h3> 
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+            <th>Company ID</th>
+			<th>Company Name</th>		
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let company of companies">
+            <td>{{ company.companyId}}</td>
+			<td>{{ company.companyName }}</td>			
+		</tr>
+	</tbody>
+</table>

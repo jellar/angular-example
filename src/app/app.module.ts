@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth} from 'angular2-jwt';
 import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -53,7 +54,19 @@ import { AuthenticationService} from './auth/authentication.service';
     PostsModule,
     SharedModule
   ],
-  providers: [ServerDataService, AuthGuard , AuthenticationService ],
+  providers: [ServerDataService,
+               AuthGuard , 
+               AuthenticationService,
+               AuthHttp,
+               provideAuth({
+                        headerName: 'Authorization',
+                        headerPrefix: 'bearer',
+                        tokenName: 'token',
+                        tokenGetter: (() => JSON.parse(localStorage.getItem('currentUser')).token),
+                        globalHeaders: [{ 'Content-Type': 'application/json' }],
+                        noJwtError: true
+                    }) 
+        ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
